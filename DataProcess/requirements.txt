@@ -1,0 +1,12 @@
+pymupdf>=1.20.0
+pdfplumber>=0.7.0
+opencv-python>=4.5.0
+numpy>=1.20.0
+pillow>=8.0.0
+pyyaml>=6.0.0
+requests>=2.25.0
+matplotlib>=3.3.0
+gitpython>=3.1.0
+beautifulsoup4>=4.9.0
+lxml>=4.6.0
+roboflow>=1.1.0 

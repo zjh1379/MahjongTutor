@@ -1,0 +1,26 @@
+{
+  "name": "mahjongtutor",
+  "version": "1.0.0",
+  "description": "这是一个交互式的麻将学习应用，帮助初学者学习和掌握麻将的规则和策略。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.15.2",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "next": "^15.3.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.4"
+  }
+}
