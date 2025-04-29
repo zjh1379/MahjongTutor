@@ -99,77 +99,6 @@ python scrape_bilibili.py --no-image https://www.bilibili.com/opus/123456
 python scrape_bilibili.py --no-detect https://www.bilibili.com/opus/123456
 ```
 
-### 4. 使用批处理脚本（Windows）
-
-对于Windows用户，可以直接双击运行相应的批处理脚本：
-
-- `scrape_bilibili.bat`: 爬取B站文章的爬虫批处理脚本
-- `test_inference.bat`: 使用inference_sdk进行麻将牌检测的测试脚本
-
-按照提示输入参数，完成相应的操作。
-
-### 5. 使用Roboflow API进行麻将牌检测
-
-```bash
-# 使用SDK进行检测
-python DataProcess/test_roboflow.py --api-key YOUR_API_KEY --image test_image.jpg --output result.jpg
-
-# 使用REST API进行检测
-python DataProcess/test_roboflow.py --api-key YOUR_API_KEY --image test_image.jpg --output result.jpg --use-api
-
-# 指定自定义模型ID和置信度阈值
-python DataProcess/test_roboflow.py --api-key YOUR_API_KEY --image test_image.jpg --model-id "custom-model/1" --confidence 0.7
-```
-
-### 6. 使用Inference SDK进行麻将牌检测
-
-```bash
-# 使用内置API密钥测试检测
-python DataProcess/test_inference_sdk.py --image test_image.jpg --output result.jpg
-
-# 使用自定义函数进行检测
-python DataProcess/roboflow_inference.py --api-key YOUR_API_KEY --image test_image.jpg --output result.jpg --model-id "riichi-mahjong-detection/3"
-```
-
-### 7. 在代码中集成
-
-在Python代码中，您可以直接使用inference_sdk集成麻将牌检测功能：
-
-```python
-from inference_sdk import InferenceHTTPClient
-
-# 初始化客户端
-CLIENT = InferenceHTTPClient(
-    api_url="https://serverless.roboflow.com",
-    api_key="t8aq85tzovOw20ril1bB"  # 替换为您的API密钥
-)
-
-# 检测图片中的麻将牌
-result = CLIENT.infer("your_image.jpg", model_id="riichi-mahjong-detection/3")
-
-# 处理检测结果
-predictions = result.get("predictions", [])
-for pred in predictions:
-    class_name = pred.get("class", "")
-    confidence = pred.get("confidence", 0)
-    print(f"检测到: {class_name} (置信度: {confidence:.2f})")
-```
-
-### 8. 更多选项和详细说明
-
-```bash
-# PDF转Markdown工具帮助
-python convert_pdf.py --help
-
-# Bilibili文章爬虫帮助
-python scrape_bilibili.py --help
-
-# Roboflow API麻将牌检测测试帮助
-python DataProcess/test_roboflow.py --help
-
-# Inference SDK麻将牌检测测试帮助
-python DataProcess/test_inference_sdk.py --help
-```
 
 ## 麻将牌文本表示
 
@@ -181,17 +110,3 @@ python DataProcess/test_inference_sdk.py --help
 - 东南西北中发白：直接使用汉字表示字牌
 
 例如，`123m 456p 789s 东南西` 表示一组包含一万、二万、三万、四筒、五筒、六筒、七索、八索、九索、东风、南风、西风的麻将牌组合。
-
-## 关于Roboflow模型
-
-本项目集成了Roboflow提供的日式麻将牌检测模型（https://universe.roboflow.com/riichimahjongdetection/riichi-mahjong-detection/model/3）。该模型经过训练，可以识别标准的麻将牌，包括万子、筒子、索子和字牌。
-
-使用Roboflow API需要注册一个Roboflow账号并获取API密钥。具体步骤如下：
-
-1. 访问 https://roboflow.com/ 注册账号
-2. 登录后进入个人设置页面获取API密钥
-3. 在运行脚本时通过`--api-key`参数提供API密钥
-
-## 详细说明
-
-详细的功能说明和实现细节请参考`DataProcess/README.md`文件。
