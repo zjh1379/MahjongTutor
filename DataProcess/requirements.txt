@@ -9,4 +9,5 @@ matplotlib>=3.3.0
 gitpython>=3.1.0
 beautifulsoup4>=4.9.0
 lxml>=4.6.0
-roboflow>=1.1.0 
+roboflow>=1.1.0
+PyPDF2>=3.0.0 
